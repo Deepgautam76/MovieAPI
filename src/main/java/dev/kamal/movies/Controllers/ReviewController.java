@@ -18,12 +18,18 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
+    public ReviewController(ReviewService reviewService) {
+        this.reviewService = reviewService;
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/reviews")
     public ResponseEntity<Review> createReview(@RequestBody Map<String,String> payload){
         //Console output
         System.out.println("This is the payload"+payload);
         return new ResponseEntity<Review>(reviewService.createReview(payload.get("reviewBody"),payload.get("imdbId")), HttpStatus.CREATED);
     }
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/reviews")
     public  ResponseEntity<List<Review>> allReview(){
         return  new ResponseEntity<List<Review>>(reviewService.allreview(),HttpStatus.OK);
