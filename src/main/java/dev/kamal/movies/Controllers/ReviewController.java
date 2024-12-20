@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 //cros origin error solving
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1")
 public class ReviewController {
@@ -22,14 +22,14 @@ public class ReviewController {
         this.reviewService = reviewService;
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+//    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/reviews")
     public ResponseEntity<Review> createReview(@RequestBody Map<String,String> payload){
         //Console output
         System.out.println("This is the payload"+payload);
         return new ResponseEntity<Review>(reviewService.createReview(payload.get("reviewBody"),payload.get("imdbId")), HttpStatus.CREATED);
     }
-    @CrossOrigin(origins = "http://localhost:3000")
+//    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/reviews")
     public  ResponseEntity<List<Review>> allReview(){
         return  new ResponseEntity<List<Review>>(reviewService.allreview(),HttpStatus.OK);
