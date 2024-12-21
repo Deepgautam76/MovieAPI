@@ -25,12 +25,13 @@ public class MovieController {
 //    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public ResponseEntity<List<Movie>> getAllMovies(){
-        return new ResponseEntity<List<Movie>>(movieService.allMovies(), HttpStatus.OK);
+        System.out.println("all Movie"+movieService.allMovies());
+        return new ResponseEntity<>(movieService.allMovies(), HttpStatus.OK);
     }
 //    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/{imdbId}")
     public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbId){
-       return new ResponseEntity<Optional<Movie>>(movieService.singleMovie((imdbId)),HttpStatus.OK);
+       return new ResponseEntity<>(movieService.singleMovie((imdbId)), HttpStatus.OK);
     }
 
 }

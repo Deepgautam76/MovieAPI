@@ -10,7 +10,8 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.util.List;
 
-@Document
+
+@Document("movie")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
